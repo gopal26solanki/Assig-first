@@ -1,210 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>       
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Practice Grid Layout</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: #e8eef3;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-    }
-
-    .grid-wrapper {
-      background: white;
-      border: 2px solid #999;
-      padding: 28px 36px 36px;
-      width: 92%;
-      max-width: 980px;
-    }
-
-    h2 {
-      text-align: center;
-      text-decoration: underline;
-      font-size: 1.35rem;
-      margin-bottom: 18px;
-      color: #111;
-      font-weight: normal;
-    }
-
-    
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 65px 65px 65px 65px 70px 70px 70px;
-      gap: 3px;
-      background: #555; /* gap color */
-    }
-
-    .cell {
-      padding: 5px 8px;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #222;
-    }
-
-    /* ── Box 1: Yellow, col 1-4, row 1-4 ── */
-    .b1 {
-      background: #cfe000;
-      grid-column: 1 / 5;
-      grid-row: 1 / 5;
-    }
-
-    /* ── Box 2: Orange, col 5-8, row 1 ── */
-    .b2 {
-      background: #e8920a;
-      grid-column: 5 / 9;
-      grid-row: 1 / 2;
-    }
-
-    /* ── Box 3: Yellow, col 5-8, row 2 ── */
-    .b3 {
-      background: #cfe000;
-      grid-column: 5 / 9;
-      grid-row: 2 / 3;
-    }
-
-    
-  .b456-wrapper {
-    grid-column: 5 / 9;
-    grid-row: 3 / 5;   /* changed from 3 / 4 */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-    padding: 0;
-    background: #555;
-  }
-
-
-    /* ── Box 7: Red, col 9-12, row 1-2 ── */
-    .b7 {
-      background: #e03c2d;
-      grid-column: 9 / 13;
-      grid-row: 1 / 3;
-    }
-
-    /* ── Box 8: Dark Green, col 9-12, row 3-4 ── */
-    .b8 {
-      background: #4a7a3d;
-      grid-column: 9 / 13;
-      grid-row: 3 / 5;
-    }
-
-    /* ── BOTTOM SECTION ── */
-
-    /*
-      Both 10 boxes: EQUAL width, SAME height (row 5 only).
-      Col 1-6 split equally = 3 cols each.
-      10a: col 1-4, 10b: col 4-7
-    */
-    .b10a {
-      background: #cfe000;
-      grid-column: 1 / 4;
-      grid-row: 5 / 6;
-    }
-
-    .b10b {
-      background: #e8920a;
-      grid-column: 4 / 7;
-      grid-row: 5 / 6;  /* SAME row as 10a — NOT taller */
-    }
-
-    /*
-      11, 12, 13 — equal width, rows 6-7.
-      From image: 11 and 12 sit under yellow-10 (col 1-3),
-      13 sits under orange-10 (col 4-6).
-      For EQUAL thirds of col 1-6: 2 cols each.
-      11: col 1-3, 12: col 3-5, 13: col 5-7
-    */
-    .b11 {
-      background: #a8d8f0;
-      grid-column: 1 / 3;
-      grid-row: 6 / 8;
-    }
-
-    .b12 {
-      background: #a8d8f0;
-      grid-column: 3 / 5;
-      grid-row: 6 / 8;
-    }
-
-    .b13 {
-      background: #e8920a;
-      grid-column: 5 / 7;
-      grid-row: 6 / 8;
-    }
-
-    /* ── Box 14: Red, col 7-9, row 5-7 ── */
-    .b14 {
-      background: #e03c2d;
-      grid-column: 7 / 10;
-      grid-row: 5 / 8;
-    }
-
-    /* ── Box 15: Pink, col 10-12, row 5 ── */
-    .b15 {
-      background: #e49fc8;
-      grid-column: 10 / 13;
-      grid-row: 5 / 6;
-    }
-
-    /* ── Box 16: Yellow, col 10-12, row 6 ── */
-    .b16 {
-      background: #cfe000;
-      grid-column: 10 / 13;
-      grid-row: 6 / 7;
-    }
-
-    /* ── Box 17: Gray, col 10-12, row 7 ── */
-    .b17 {
-      background: #b8b8b8;
-      grid-column: 10 / 13;
-      grid-row: 7 / 8;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colmar Academy</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="grid-wrapper">
-    <h2>Practice Grid Layoud</h2>
 
-    <div class="grid">
+<!-- NAVBAR -->
 
-      <div class="cell b1">1</div>
-      <div class="cell b2">2</div>
-      <div class="cell b3">3</div>
+<header class="navbar">
 
-      <!-- 4, 5, 6: nested grid so all three are equal width AND full row height -->
-      <div class="b456-wrapper">
-        <div class="cell" style="background:#4a7a3d;">4</div>
-        <div class="cell" style="background:#7b7bd4;">5</div>
-        <div class="cell" style="background:#cfe000;">6</div>
-      </div>
+<div class="logo">
+<img src="https://img.icons8.com/ios-filled/50/000000/graduation-cap.png">
+<span><b>COLMAR</b>ACADEMY</span>
+</div>
 
-      <div class="cell b7">7</div>
-      <div class="cell b8">8</div>
+<nav>
+<a href="#">On Campus</a>
+<a href="#">Online</a>
+<a href="#">Companies</a>
+<a href="#">Sign in</a>
+</nav>
 
-      <!-- Both 10 boxes: equal width, same height -->
-      <div class="cell b10a">10</div>
-      <div class="cell b10b">10</div>
+</header>
 
-      <!-- 11, 12, 13: equal width -->
-      <div class="cell b11">11</div>
-      <div class="cell b12">12</div>
-      <div class="cell b13">13</div>
 
-      <div class="cell b14">14</div>
-      <div class="cell b15">15</div>
-      <div class="cell b16">16</div>
-      <div class="cell b17">17</div>
+<!-- HERO SECTION -->
 
-    </div>
-  </div>
+<section class="hero">
+
+<div class="hero-img">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+</div>
+
+<div class="hero-text">
+<h1>Learn something new everyday</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+<button>Start here</button>
+</div>
+
+</section>
+
+
+<!-- INFORMATION SECTION -->
+
+<section class="info">
+
+<div class="main-info">
+
+<img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d">
+
+<h2>It doesn’t hurt to keep practicing</h2>
+
+<p>
+Curabitur vitae libero in ipsum porttitor consequat.
+Aliquam et commodo lectus, nec consequat neque.
+Sed non accumsan urna.
+</p>
+
+<p class="author">Emanuel, Sr Strategist at Hiring.com</p>
+
+</div>
+
+
+<div class="side-info">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+
+<div>
+<h3>Orientation date</h3>
+<p>Tue 10/11 & Wed 10/12</p>
+<a href="#">Read more</a>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+
+<div>
+<h3>Our campus</h3>
+<p>Find which campus is close by you</p>
+<a href="#">Read more</a>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
+
+<div>
+<h3>Our guest lecture</h3>
+<p>Join a keynote with Oliver Sack</p>
+<a href="#">Read more</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- COURSES SECTION -->
+
+<section class="courses">
+
+<h2>Start learning</h2>
+
+<div class="course-grid">
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<h3>Software engineering</h3>
+<p>Web Development, Mobile Development</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+<h3>Computer art</h3>
+<p>Imaging & Design</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+<h3>Design</h3>
+<p>User Experience Design</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+<h3>Data</h3>
+<p>Big data & SQL</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf">
+<h3>Business</h3>
+<p>Product Development</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+<h3>Marketing</h3>
+<p>Content Marketing</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- THESIS SECTION -->
+
+<section class="thesis">
+
+<h2>Thesis exhibit</h2>
+
+<div class="thesis-container">
+
+<div class="video">
+
+<iframe width="100%" height="315"
+src="https://www.youtube.com/embed/TX9qSaGXFyg">
+</iframe>
+
+<p>
+Reimagine urban
+Curabitur vitae libero in ipsum porttitor consequat.
+</p>
+
+</div>
+
+
+<div class="thesis-cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div>
+<h4>Fisma: Design and Prototype</h4>
+<p>Designer showcase of new prototype</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b">
+<div>
+<h4>Now and then</h4>
+<p>Research study about New York</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 Colmar Academy. All rights reserved</p>
+
+<div>
+<a href="#">Terms</a>
+<a href="#">Privacy</a>
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
+
+index.html
